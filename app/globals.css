@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 214 43% 10%;
+    --foreground: 0 0% 96%;
+    --card: 214 43% 12%;
+    --card-foreground: 0 0% 96%;
+    --primary: 38 45% 59%;
+    --primary-foreground: 214 43% 10%;
+    --secondary: 214 43% 15%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 214 40% 15%;
+    --muted-foreground: 215 16% 65%;
+    --accent: 38 45% 59%;
+    --accent-foreground: 214 43% 10%;
+    --border: 214 30% 18%;
+    --input: 214 30% 18%;
+    --ring: 38 45% 59%;
+    --radius: 0.25rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-[#0A1628] text-[#F5F5F5];
+    font-family: var(--font-inter), sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-playfair), Georgia, serif;
+  }
+}
+
+@layer utilities {
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0A1628;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #C2A36B;
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #d4b87d;
+  }
+
+  /* Selection color */
+  ::selection {
+    background: #C2A36B33;
+    color: #F5F5F5;
+  }
+
+  .font-playfair {
+    font-family: var(--font-playfair), Georgia, serif;
+  }
+
+  .font-inter {
+    font-family: var(--font-inter), sans-serif;
+  }
+}
