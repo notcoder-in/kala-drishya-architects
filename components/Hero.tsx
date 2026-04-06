@@ -24,12 +24,12 @@ function HeadlineLine({
   text,
   delay,
   italic,
-  indent = "0",
+  indent = 0,
 }: {
   text: string;
   delay: number;
   italic?: boolean;
-  indent?: string;
+  indent?: number;
 }) {
   return (
     <div className="overflow-hidden" style={{ paddingLeft: indent }}>
