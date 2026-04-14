@@ -88,7 +88,7 @@ const PROJECTS: Gallery4Item[] = [
     description:
       "A premium residential interior project crafted with bespoke furnishings, warm textures, and meticulous spatial planning for a luxury living experience.",
     href: "#portfolio",
-    image: ASTONE_IMAGES[0],
+    image: "/projects/astone-homes/BQS_2262-HDR-Edit.jpg",
     tag: "Interior Design",
     images: ASTONE_IMAGES,
   },
@@ -98,7 +98,7 @@ const PROJECTS: Gallery4Item[] = [
     description:
       "A high-end residential project blending contemporary aesthetics with functional elegance — every corner designed with intent and precision.",
     href: "#portfolio",
-    image: SHIVEN_IMAGES[0],
+    image: "/projects/shiven-florenza/IMG_2526.JPG.jpeg",
     tag: "Interior Design",
     images: SHIVEN_IMAGES,
   },
