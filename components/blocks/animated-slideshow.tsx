@@ -24,7 +24,7 @@ function splitText(text: string) {
   return { words, characters };
 }
 
-const HoverSliderContext = React.createContext<
+export const HoverSliderContext = React.createContext<
   HoverSliderContextValue | undefined
 >(undefined);
 
