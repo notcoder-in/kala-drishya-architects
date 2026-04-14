@@ -9,6 +9,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import ProjectModal from "@/components/ProjectModal";
 
 export interface Gallery4Item {
   id: string;
@@ -17,6 +18,7 @@ export interface Gallery4Item {
   href: string;
   image: string;
   tag?: string;
+  images?: string[]; // all project photos for modal
 }
 
 export interface Gallery4Props {
@@ -35,6 +37,7 @@ const Gallery4 = ({
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [activeProject, setActiveProject] = useState<Gallery4Item | null>(null);
 
   useEffect(() => {
     if (!carouselApi) return;
@@ -49,6 +52,7 @@ const Gallery4 = ({
   }, [carouselApi]);
 
   return (
+    <>
     <section className="py-32 bg-[#0A1628]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-8 flex items-end justify-between md:mb-14 lg:mb-16">
@@ -96,7 +100,10 @@ const Gallery4 = ({
                 key={item.id}
                 className="max-w-[320px] pl-[20px] lg:max-w-[380px]"
               >
-                <a href={item.href} className="group rounded-xl block">
+                <div
+                  className="group rounded-xl block cursor-pointer"
+                  onClick={() => item.images?.length ? setActiveProject(item) : undefined}
+                >
                   <div className="group relative h-full min-h-[27rem] max-w-full overflow-hidden rounded-xl md:aspect-[5/4] lg:aspect-[16/9]">
                     <img
                       src={item.image}
@@ -118,11 +125,16 @@ const Gallery4 = ({
                       </div>
                       <div className="flex items-center text-sm text-[#C2A36B] group-hover:gap-2 transition-all">
                         View Project{" "}
+                        {item.images?.length && (
+                          <span className="ml-1 text-[#C2A36B]/50 text-xs tabular-nums">
+                            ({item.images.length})
+                          </span>
+                        )}
                         <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
                       </div>
                     </div>
                   </div>
-                </a>
+                </div>
               </CarouselItem>
             ))}
           </CarouselContent>
@@ -143,6 +155,18 @@ const Gallery4 = ({
         </div>
       </div>
     </section>
+
+    {activeProject && (
+      <ProjectModal
+        isOpen={!!activeProject}
+        onClose={() => setActiveProject(null)}
+        title={activeProject.title}
+        description={activeProject.description}
+        tag={activeProject.tag}
+        images={activeProject.images ?? []}
+      />
+    )}
+  </>
   );
 };
 
