@@ -5,6 +5,7 @@ import Services from "@/components/Services";
 import Portfolio from "@/components/Portfolio";
 import BeforeAfter from "@/components/BeforeAfter";
 import About from "@/components/About";
+import InstagramSection from "@/components/InstagramSection";
 import Contact from "@/components/Contact";
 import SiteFooter from "@/components/SiteFooter";
 
@@ -32,7 +33,10 @@ export default function Home() {
       {/* 7. About — Firm story, leadership, philosophy */}
       <About />
 
-      {/* 8. Contact — WhatsApp, Call, Map */}
+      {/* 8. Instagram showcase */}
+      <InstagramSection />
+
+      {/* 9. Contact — WhatsApp, Call, Map */}
       <Contact />
 
       {/* 9. Footer */}
